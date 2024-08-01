@@ -178,7 +178,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     finalMod.print_to_file(&outPath).expect("Could not print ll file");
 
     //Defines the path of the library (where the builtins are defined)
-    let libPath = Path::new("./target/release/libfuncLib").with_extension("a");
+    let libPath = Path::new("./funcLib").with_extension("a");
 
     //Create the final output by using clang as the linker for the libray
     let finalOutput = Command::new("clang")
@@ -186,8 +186,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .arg(&outPath)
         .arg(&libPath)
         .output()
-        .expect("Clang Linker failed"
-    );
+        .expect("Clang Linker failed");
+
+    //Checks the success of the linker
     let checkSuccess = finalOutput.status;
     if !checkSuccess.success() {
         println!("Error in linking");
