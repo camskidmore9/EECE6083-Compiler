@@ -1,0 +1,22 @@
+workspace = { members = ["funcLib"] }
+[package]
+name = "compiler"
+version = "0.1.0"
+edition = "2021"
+
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+anyhow = "1.0.79"
+parse-display = "0.9.0"
+utf8-chars = "3.0.1"
+unicode-segmentation = "1.9.0"
+inkwell = { version = "0.4.0", features = ["llvm14-0"] }
+llvm-sys = "181.1.0"
+polly = "0.1.2"
+
+
+[lib]
+name = "funcLib"
+path = "funcLib/src/lib.rs"
+crate-type = ["staticlib"]

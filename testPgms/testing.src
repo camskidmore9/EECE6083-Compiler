@@ -1,0 +1,29 @@
+program MyTestProgram is
+
+variable value : integer;
+variable tmp2 : float;  //this variable will be hidden by the declaration in Fib
+variable out : bool;
+variable floatVal: float;
+variable i: integer;
+
+
+
+
+begin
+
+i := 1;
+
+putinteger(i);
+
+for (i := 0; i < 10)
+    putinteger(i);
+    
+    i := i + 1;
+end for;
+out := true;
+
+putinteger(i);
+
+end program.
+
+
